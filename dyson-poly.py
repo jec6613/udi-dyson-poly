@@ -74,6 +74,12 @@ class Controller(polyinterface.Controller):
                 elif dev.product_type == DYSON_PURE_COOL_LINK_TOUR:
                     LOGGER.info('Adding v1 product: {}, name: {}'.format(dev.product_type, dev.name))
                     self.addNode(DysonPureFanV1(self, self.address, address, name, dev))
+                elif dev.product_type == DYSON_PURE_HOT_COOL:
+                    LOGGER.info('Adding v2 product: {}, name: {}'.format(dev.product_type, dev.name))
+                    self.addNode(DysonPureHotCool(self, self.address, address, name, dev))
+                elif dev.product_type == DYSON_PURE_COOL_LINK_TOUR:
+                    LOGGER.info('Adding v1 product: {}, name: {}'.format(dev.product_type, dev.name))
+                    self.addNode(DysonPureHotCoolV1(self, self.address, address, name, dev))
                 else:
                     LOGGER.info('Found product type: {}, name: {} but it\'s not yet supported'.format(dev.product_type, dev.name))
 
